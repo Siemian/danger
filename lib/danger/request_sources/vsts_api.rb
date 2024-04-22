@@ -23,6 +23,8 @@ module Danger
         end
 
         self.pr_api_endpoint = "#{host}/_apis/git/repositories/#{slug}/pullRequests/#{pull_request_id}"
+        puts self.pr_api_endpoint
+        puts @token
       end
 
       def supports_comments?
@@ -50,6 +52,7 @@ module Danger
 
       def fetch_pr_json
         uri = URI("#{pr_api_endpoint}?api-version=#{@api_version}")
+        puts uri
         fetch_json(uri)
       end
 
